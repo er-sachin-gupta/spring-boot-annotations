@@ -12,7 +12,7 @@ public class PizzaController {
 
     private Pizza pizza;
 
-    public PizzaController(@Qualifier("nonVegPizza") Pizza pizza) {
+    public PizzaController(Pizza pizza) {
         this.pizza = pizza;
     }
 
