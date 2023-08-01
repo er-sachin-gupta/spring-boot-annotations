@@ -21,6 +21,11 @@ public class AppConfig {
         return new NonVegPizza();
     }
 
+    /**
+     * The init-method attribute specifies a method that is to be called on the bean immediately upon instantiation. This init method is called after initializing bean properties.
+     * The destroy() method will be called before the bean is removed from the IOC container.
+     * @return
+     */
     @Bean(initMethod = "init", destroyMethod = "destroy")
     public PizzaController pizzaController() {
         return  new PizzaController(nonVegPizza());
