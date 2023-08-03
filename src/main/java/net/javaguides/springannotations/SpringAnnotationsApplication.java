@@ -8,6 +8,7 @@ import net.javaguides.springannotations.scope.PrototypeBean;
 import net.javaguides.springannotations.scope.SingletonBean;
 import net.javaguides.springannotations.service.MyService;
 import net.javaguides.springannotations.service.VegPizza;
+import net.javaguides.springannotations.value.ValueAnnotationDemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -16,7 +17,7 @@ public class SpringAnnotationsApplication {
 
 	public static void main(String[] args) {
 		var context =  SpringApplication.run(SpringAnnotationsApplication.class, args);
-		SingletonBean singletonBean1 = context.getBean(SingletonBean.class);
+		/*SingletonBean singletonBean1 = context.getBean(SingletonBean.class);
 		System.out.println(singletonBean1.hashCode());
 
 		SingletonBean singletonBean2 = context.getBean(SingletonBean.class);
@@ -32,7 +33,14 @@ public class SpringAnnotationsApplication {
 		System.out.println(prototypeBean2.hashCode());
 
 		PrototypeBean prototypeBean3 = context.getBean(PrototypeBean.class);
-		System.out.println(prototypeBean3.hashCode());
+		System.out.println(prototypeBean3.hashCode());*/
+
+		ValueAnnotationDemo valueAnnotationDemo = context.getBean(ValueAnnotationDemo.class);
+		System.out.println(valueAnnotationDemo.getDefaultName());
+		System.out.println(valueAnnotationDemo.getHost());
+		System.out.println(valueAnnotationDemo.getEmail());
+		System.out.println(valueAnnotationDemo.getPassword());
+		System.out.println(valueAnnotationDemo.getJavaHome());
 
 		/*PizzaController pizzaController = (PizzaController) context.getBean("pizzaController");
 //		PizzaController pizzaController = (PizzaController) context.getBean("pizzaDemo");
