@@ -3,6 +3,7 @@ package net.javaguides.springannotations;
 import net.javaguides.springannotations.controller.MyController;
 import net.javaguides.springannotations.controller.PizzaController;
 import net.javaguides.springannotations.lazy.LazyLoader;
+import net.javaguides.springannotations.propertysource.PropertySourceDemo;
 import net.javaguides.springannotations.repository.MyRepository;
 import net.javaguides.springannotations.scope.PrototypeBean;
 import net.javaguides.springannotations.scope.SingletonBean;
@@ -17,6 +18,15 @@ public class SpringAnnotationsApplication {
 
 	public static void main(String[] args) {
 		var context =  SpringApplication.run(SpringAnnotationsApplication.class, args);
+
+		PropertySourceDemo propertySourceDemo = context.getBean(PropertySourceDemo.class);
+		System.out.println(propertySourceDemo.getHost());
+		System.out.println(propertySourceDemo.getEmail());
+		System.out.println(propertySourceDemo.getPassword());
+		System.out.println(propertySourceDemo.getAppName());
+		System.out.println(propertySourceDemo.getAppDescription());
+
+
 		/*SingletonBean singletonBean1 = context.getBean(SingletonBean.class);
 		System.out.println(singletonBean1.hashCode());
 
@@ -35,12 +45,12 @@ public class SpringAnnotationsApplication {
 		PrototypeBean prototypeBean3 = context.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean3.hashCode());*/
 
-		ValueAnnotationDemo valueAnnotationDemo = context.getBean(ValueAnnotationDemo.class);
+		/*ValueAnnotationDemo valueAnnotationDemo = context.getBean(ValueAnnotationDemo.class);
 		System.out.println(valueAnnotationDemo.getDefaultName());
 		System.out.println(valueAnnotationDemo.getHost());
 		System.out.println(valueAnnotationDemo.getEmail());
 		System.out.println(valueAnnotationDemo.getPassword());
-		System.out.println(valueAnnotationDemo.getJavaHome());
+		System.out.println(valueAnnotationDemo.getJavaHome());*/
 
 		/*PizzaController pizzaController = (PizzaController) context.getBean("pizzaController");
 //		PizzaController pizzaController = (PizzaController) context.getBean("pizzaDemo");
