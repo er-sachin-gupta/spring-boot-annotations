@@ -1,5 +1,6 @@
 package net.javaguides.springannotations;
 
+import net.javaguides.springannotations.configurationproperties.AppPropertiesDemo;
 import net.javaguides.springannotations.controller.MyController;
 import net.javaguides.springannotations.controller.PizzaController;
 import net.javaguides.springannotations.lazy.LazyLoader;
@@ -19,12 +20,15 @@ public class SpringAnnotationsApplication {
 	public static void main(String[] args) {
 		var context =  SpringApplication.run(SpringAnnotationsApplication.class, args);
 
-		PropertySourceDemo propertySourceDemo = context.getBean(PropertySourceDemo.class);
+		AppPropertiesDemo appPropertiesDemo = context.getBean(AppPropertiesDemo.class);
+		appPropertiesDemo.display();
+
+		/*PropertySourceDemo propertySourceDemo = context.getBean(PropertySourceDemo.class);
 		System.out.println(propertySourceDemo.getHost());
 		System.out.println(propertySourceDemo.getEmail());
 		System.out.println(propertySourceDemo.getPassword());
 		System.out.println(propertySourceDemo.getAppName());
-		System.out.println(propertySourceDemo.getAppDescription());
+		System.out.println(propertySourceDemo.getAppDescription());*/
 
 
 		/*SingletonBean singletonBean1 = context.getBean(SingletonBean.class);
