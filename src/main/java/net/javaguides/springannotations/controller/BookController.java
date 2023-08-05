@@ -1,6 +1,7 @@
 package net.javaguides.springannotations.controller;
 
 import net.javaguides.springannotations.beans.Book;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +56,13 @@ public class BookController {
         updatesBook.setId(id);
         return ResponseEntity.ok(updatesBook);
 
+    }
+
+    @DeleteMapping(value = "/books/delete/{id}")
+//    @RequestMapping(value = "/books/delete/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<String> deleteBook(@PathVariable(value = "id") int bookId) {
+        System.out.println(bookId);
+        return ResponseEntity.ok("Book Deleted Successfully");
     }
 
 }
